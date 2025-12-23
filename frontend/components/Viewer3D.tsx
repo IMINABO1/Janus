@@ -1,6 +1,5 @@
-
 import React, { useRef, useImperativeHandle, forwardRef, useState, useEffect } from 'react';
-import { Canvas, useThree, ThreeElements } from '@react-three/fiber';
+import { Canvas, useThree } from '@react-three/fiber';
 import { OrbitControls, Grid, Environment, ContactShadows, GizmoHelper, GizmoViewport } from '@react-three/drei';
 import * as THREE from 'three';
 import { CADObject, ShapeType } from '../../types';
@@ -9,12 +8,6 @@ interface ViewerProps {
   objects: CADObject[];
   onSelect: (id: string | null) => void;
   selectedId: string | null;
-}
-
-declare global {
-  namespace JSX {
-    interface IntrinsicElements extends ThreeElements {}
-  }
 }
 
 export interface Viewer3DHandle {

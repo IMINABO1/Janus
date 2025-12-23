@@ -99,13 +99,14 @@ export class SceneManager {
 
     commands.forEach(cmd => {
       // Robustness: Sometimes AI puts the ID in objectData but forgets targetId
+      // And sometimes it puts it in targetId for CREATE as well.
       const targetId = cmd.targetId || cmd.objectData?.id;
 
       switch (cmd.action) {
         case AIActionType.CREATE:
           if (cmd.objectData) {
-            // Generate a robust ID if missing
-            const id = cmd.objectData.id || `obj_${Date.now()}_${Math.random().toString(36).substr(2, 5)}`;
+            // Priority: objectData.id -> cmd.targetId -> random
+            const id = cmd.objectData.id || targetId || `obj_${Date.now()}_${Math.random().toString(36).substr(2, 5)}`;
             
             // Ensure unique name
             const rawName = cmd.objectData.name || 'Object';
