@@ -1,0 +1,27 @@
+{
+  "name": "janus",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0&external=react",
+    "three": "0.160.0",
+    "three-mesh-bvh": "0.7.0",
+    "three-bvh-csg": "0.0.16",
+    "@react-three/fiber": "8.15.12",
+    "@react-three/drei": "9.88.0",
+    "@google/genai": "0.14.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}
